@@ -10,7 +10,7 @@
 		</section>
 	} else {
 		<section class="box">
-			<table>
+			<table class="index">
 				<thead>
 
 				<tr>
@@ -24,13 +24,14 @@
 
 				<tbody>
 				@people.zipWithIndex.map { case (person, index) =>
-				<tr class="@{if (index % 2 == 1) "even" else "odd"}">
-				<td>@person.name</td>
-				<td>@person.fileAs</td>
-				<td>@person.telephoneNumber</td>
-				<td>@person.office</td>
-				<td>@person.emailAddress</td>
-				</tr>						}
+					<tr class="@{if (index % 2 == 1) "even" else "odd"}">
+						<td><a href="@routes.Application.details(person.id)">@person.name</a></td>
+						<td>@person.fileAs</td>
+						<td>@person.telephoneNumber</td>
+						<td>@person.office</td>
+						<td>@person.emailAddress</td>
+					</tr>
+				}
 				</tbody>
 			</table>
 		</section>

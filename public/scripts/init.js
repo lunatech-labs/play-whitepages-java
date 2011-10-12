@@ -42,32 +42,4 @@
         $('.tabs').each(function(){
           $(this).tabs();
         })
-        
-        
-        $(".datatable").each(function(){
-            $(this).dataTable( {
-                "bJQueryUI": true,
-                "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
-                "iDisplayLength": 5,
-                "bLengthChange": true,
-                "sPaginationType": "full_numbers",
-                "aoColumns": [ null, null, null, { "bSortable": false } ]
-            });
-        });
-    
-        $("canvas.dummy").each(function(){
-            var el = $(this).get()[0];
-            var ctx = el.getContext('2d');
-            ctx.fillStyle = '#08f';
-            function chart( x, w, val ) {
-              ctx.beginPath();
-              ctx.rect(x,200-val,w,val);
-              ctx.fill();
-            }
-            var w=5;
-            for (var x=0; x < 500; x+=w) {
-              chart( x, w, 200*Math.random() );
-            }
-        });
-
-    });    
+    });
