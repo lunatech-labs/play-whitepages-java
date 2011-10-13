@@ -1,8 +1,10 @@
 @(title:String, subtitle:String)(body: => Html)
+@import play.core.Router._
+@import play.mvc.Http.Context
 <!DOCTYPE html>
 <html>
 <head>
-<title>@title @(if(title) "-") White Pages</title>
+<title>@title - White Pages</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/main.css")">
@@ -20,8 +22,12 @@
 
 <nav>
 	<ul>
-		<li class="active"><a href="/">Home</a></li>
-		<li><a href="">Other</a></li>
+		@if(Context.current().request().uri == "/") {
+			<li class="active"><a href="/">Home</a></li>
+		} else {
+			<li><a href="/">Home</a></li>
+			<li class="active"><a href="">@title</a></li>
+		}
 	</ul>
 </nav>
 
