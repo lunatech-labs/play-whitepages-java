@@ -4,6 +4,8 @@ import models.Person;
 import play.mvc.*;
 import views.html.*;
 
+import java.util.List;
+
 public class Application extends Controller {
 
 	public static Result details(final Long id) {
@@ -12,7 +14,8 @@ public class Application extends Controller {
 	}
 
 	public static Result index() {
-		return ok(index.render(Person.find.all()));
+        final List<Person> list = Person.find.query().order("fileAs").findList();
+        return ok(index.render(list));
 	}
 
 }
