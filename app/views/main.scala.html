@@ -12,7 +12,6 @@
 <script src="@routes.Assets.at("scripts/jquery.js")" type="text/javascript" charset="utf-8"></script>
 <script src="@routes.Assets.at("scripts/jquery-ui.js")" type="text/javascript" charset="utf-8"></script>
 <script src="@routes.Assets.at("scripts/init.js")" type="text/javascript" charset="utf-8"></script>
-<script src="@routes.Assets.at("scripts/jquery.dataTables.js")" type="text/javascript" charset="utf-8"></script>
 <script src="@routes.Assets.at("scripts/application.js")" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
@@ -23,12 +22,7 @@
 
 <nav>
 	<ul>
-		@if(Context.current().request().uri == "/") {
-			<li class="active"><a href="/">Home</a></li>
-		} else {
-			<li><a href="/">Home</a></li>
-			<li class="active"><a href="">@title</a></li>
-		}
+		<li class="active"><a href="/">Home</a></li>
 	</ul>
 </nav>
 

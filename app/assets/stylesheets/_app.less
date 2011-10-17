@@ -56,7 +56,7 @@
         float: left;
         margin-top: @line;
         margin-right: @block;
-        width: auto;
+        width: 33%;
         }
     .content > .info {
         width: auto;
@@ -87,96 +87,32 @@
         border-top: @l dotted @grey6;
         padding-bottom: 0;
         }
-                
-        
-/*  Tab & intro content */
-    
-    .content .ui-tabs-panel {
-        width: 100%;
-        overflow: hidden;
-        }
-    .tabs hgroup {
-        background: transparent;
-        }   
-    p canvas, p img {
-        float: left;
-        margin: 0 @block/2 0 0;
-        }
-    canvas,
-    figure {
-        border: @l solid @grey6;
-        max-width: @text-block;
-        background-color: @grey6;
-        }
-    figure img{
-        float: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-            }
-    figcaption {
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        white-space: nowrap;
-        color: @grey1;
-        background-color: @grey6;
-        }   
-    .bootsteps{
-        float: left;
-        list-style: none;
-        margin: @line 0 0;
-        padding: 0;
-        width: 60%;
-        }
-    .bootsteps li{
-        position: relative;
-        margin: 0 0 @line;
-        padding: @line @block @line @block*1.2;
-        .h4;
-       .rounded-corners();
-        background: @light-color;
-        .box-shadow();
-        }
-    .bootsteps li:after{
-        position: absolute;
-        top: 0 - @line/3;
-        left:0 - @w;
-        width: @block;
-        height: @em;
-        text-align: center;
-        .h5;
-        font-family: @typeface-header;
-        padding: 0 @block/5 @line/8;
-        .rounded-corners(@block);
-        color: @light-color;
-        .text-shadow(0 - @l, @dark-color);
-        .gradient(@grey5,@grey6);
-        .box-shadow();
-        }
-    .bootsteps li:hover:after{
-        .gradient(@red1,@red2);
-        }
-    .bootsteps li:nth-child(1):after{
-        content: "1";
-        }
-    .bootsteps li:nth-child(2):after{
-        content: "2";
-        }
-    .bootsteps li:nth-child(3):after{
-        content: "3";
-        }
+
         
         
 /*  Tables */
 
-    table tbody tr:hover td {
-        color: @light-color;
-        background-color: desaturate(@blue1, 20%);
+    table.index {
+        border: 1px solid @grey2;
+        width: 100%;
+        }
+    table.index a {
+        color: black;
+    }
+    table.index tr.selected td {
+        background-color: lighten(@blue1, 20%);
+        }
+    table.index tbody tr:hover a,
+    table.index tbody tr.selected a {
+        color: @blue2;
+        }
+    table.index td {
+        padding:0.5em;
+        border-bottom: 1px dotted @grey2
         }
 
 
-/*  Navigaiton */    
+/*  Navigation */
 
     nav ul {
         clear: both;
@@ -359,8 +295,8 @@
     .examples .box:first-child {
         margin-left: 0;
         }
-    
-        
+
+
 /*  Details */
 
 	.details thead th {

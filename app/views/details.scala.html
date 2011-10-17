@@ -1,38 +1,33 @@
 @(person:models.Person)
 
-@main(title = person.name, subtitle = "Directory entry") {
+<table class="details">
+	<thead>
+		<tr>
+			<td class="avatar"><img src="@routes.Assets.at("avatar.png")"" alt="avatar"></td>
+			<th>@person.name</th>
+		</tr>
+	</thead>
 
-	<section class="box">
-		<table class="details">
-			<thead>
-				<tr>
-					<td class="avatar"><img src="@routes.Assets.at("avatar.png")"" alt="avatar"></td>
-					<th>@person.name</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<tr>
-					<th>Name</th>
-					<td>@person.name</td>
-				</tr>
-				<tr>
-					<th>File as</th>
-					<td>@person.fileAs</td>
-				</tr>
-				<tr>
-					<th>Telephone</th>
-					<td>@person.telephoneNumber</td>
-				</tr>
-				<tr>
-					<th>Office</th>
-					<td>@person.office</td>
-				</tr>
-				<tr>
-					<th>E-mail</th>
-					<td>@person.emailAddress</td>
-				</tr>
-			</tbody>
-		</table>
-	</section>
-}
+	<tbody>
+		<tr>
+			<th>Name</th>
+			<td>@person.name</td>
+		</tr>
+		<tr>
+			<th>File as</th>
+			<td>@person.fileAs</td>
+		</tr>
+		<tr>
+			<th>Telephone</th>
+			<td>@person.telephoneNumber</td>
+		</tr>
+		<tr>
+			<th>Office</th>
+			<td>@person.office</td>
+		</tr>
+		<tr>
+			<th>E-mail</th>
+			<td>@person.emailAddress</td>
+		</tr>
+	</tbody>
+</table>
