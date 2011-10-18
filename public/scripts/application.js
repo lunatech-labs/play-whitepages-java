@@ -1,11 +1,12 @@
 $(document).ready(function() {
 
+    // SECTION element for displaying details.
 	var section = $('<section/>').addClass('box');
 	section.hide();
 	$('section.box:last').after(section);
 
 	// Details table links.
-	$('table.index tr').click(function(event) {
+	$('.index .entry').live('click', function(event) {
 		event.preventDefault();
 
 		// Update list selection.
@@ -17,5 +18,18 @@ $(document).ready(function() {
 		section.load(url);
 		section.show();
 	});
+
+    // Paging (infinite scroll)
+    $('.index').infinitescroll({
+        debug: false,
+        navSelector: '.next',
+        nextSelector: ".next a:first",
+        itemSelector: ".index p",
+		loading: {
+            img: "/assets/scripts/infinite-scroll/ajax-loader.gif",
+            msgText: "",
+            finishedMsg: "All entries loaded"
+        }
+    });
 
 });

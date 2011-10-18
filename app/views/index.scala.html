@@ -1,8 +1,8 @@
-@(people:java.util.List[models.Person])
+@(people:com.avaje.ebean.Page[models.Person])
 
-@main(title = "People directory", subtitle = people.size + " people - search by name or number") {
+@main(title = "People directory", subtitle = people.getTotalRowCount() + " people - search by name or number") {
 
-	@if(people.isEmpty) {
+	@if(people.getList().isEmpty) {
 		<section>
 			<form action="@routes.TestData.load()" method="POST">
 				<button type="submit">Load Test Data</button>
@@ -10,22 +10,23 @@
 		</section>
 	} else {
 		<section class="box">
-			<table class="index">
-				@for(person <- people) {
-					<tr>
-						<td><a href="@routes.Application.details(person.id)">
-							@if(person.name.contains(person.fileAs)) {
-								@person.name.substring(0, person.name.indexOf(person.fileAs))
-								<strong>@person.name.substring(person.name.indexOf(person.fileAs))</strong>
-							} else {
-								<strong>@person.name</strong>
-							}
-						</a></td>
-					</tr>
-				}
-			</table>
+		<div id="index" class="index">
+		@for(person <- people.getList()) {
+            <p class="entry">
+            <a href="@routes.Application.details(person.id)">
+            @if(person.name.contains(person.fileAs)) {
+                @person.name.substring(0, person.name.indexOf(person.fileAs))
+                <strong>@person.name.substring(person.name.indexOf(person.fileAs))</strong>
+            } else {
+                <strong>@person.name</strong>
+            }
+            </a>
+            </p>
+        }
+        @if(people.hasNext()) {
+            <p class="next"><a href="@routes.Application.index(people.getPageIndex() + 1)">Next</a></p>
+        }
+        </div>
 		</section>
 	}
 }
-
-<section

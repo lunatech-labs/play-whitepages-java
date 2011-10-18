@@ -15,7 +15,7 @@
         min-width:  @w * 26;
         max-width:  @w * 100;
         background-color: @grey0;
-        background-image: url(../images/backgrounds/back.png);
+        background-image: url(images/backgrounds/back.png);
         }
     body > header {
         border-bottom: @l solid @grey5;
@@ -90,27 +90,34 @@
 
         
         
-/*  Tables */
+/*  List */
 
-    table.index {
+    .index {
         border: 1px solid @grey2;
         width: 100%;
+        margin-bottom:1.5em;
         }
-    table.index a {
+    .index .entry a {
         color: black;
     }
-    table.index tr.selected td {
+    .index .selected {
         background-color: lighten(@blue1, 20%);
         }
-    table.index tbody tr:hover a,
-    table.index tbody tr.selected a {
+    .index p:hover a,
+    .index .selected a {
         color: @blue2;
         }
-    table.index td {
+    .index p {
         padding:0.5em;
         border-bottom: 1px dotted @grey2
         }
 
+
+/*  Scroll */
+    #infscr-loading {
+        position:absolute;
+        text-align:center;
+    }
 
 /*  Navigation */
 
@@ -215,7 +222,7 @@
 /*  jQuery UI overrides */
 
     .hover:hover .ui-icon {
-        background-image: url(../images/icons/ui-icons_ffffff_256x240.png); 
+        background-image: url(images/icons/ui-icons_ffffff_256x240.png);
         }
 
 /*  Messages */
