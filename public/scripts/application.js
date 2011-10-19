@@ -13,8 +13,11 @@ $(document).ready(function() {
 		$(this).parent().find('.selected').removeClass('selected');
 		$(this).addClass('selected');
 
-		// Load and display the details.
 		var url = $(this).find('a').attr('href');
+
+    	// Update the URL
+
+		// Load and display the details.
 		$section.load(url);
     	$section.css('visibility', 'visible');
 	});

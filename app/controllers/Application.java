@@ -28,11 +28,11 @@ public class Application extends Controller {
     */
 	public static Result index(final int pageNumber) {
       Logger.log(String.format("page %d", pageNumber));
-      if (pageNumber < 0) {
+      if (pageNumber < 1) {
          return badRequest();
       }
 
-      final Page<Person> page = Person.page(pageNumber, PAGE_SIZE);
+      final Page<Person> page = Person.page(pageNumber - 1, PAGE_SIZE);
       return ok(index.render(page));
 	}
 

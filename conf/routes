@@ -2,7 +2,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET     /                       controllers.Application.index(page:Int ?= 0)
+GET     /                       controllers.Application.index(page:Int ?= 1)
 GET     /:id                    controllers.Application.details(id:Long)
 POST    /load                   controllers.TestData.load()
 
