@@ -1,4 +1,4 @@
-@(people:com.avaje.ebean.Page[models.Person])
+@(people:com.avaje.ebean.Page[models.Person], search:String)
 @import models.Person
 @import scala.collection.immutable.TreeMap
 
@@ -14,27 +14,12 @@
 
 
 		<section class="box">
-            <div id="index" class="index">
-            @for(letter <- TreeMap(people.getList().groupBy((person : Person) => person.fileAs.head).toSeq:_*)) {
-                <p class="letter">@letter._1</p>
-                @for(person <- letter._2) {
-                    <p class="entry">
-                    <a href="@routes.Application.details(person.id)">
-                    @if(person.name.contains(person.fileAs)) {
-                        @person.name.substring(0, person.name.indexOf(person.fileAs))
-                        <strong>@person.name.substring(person.name.indexOf(person.fileAs))</strong>
-                    } else {
-                        <strong>@person.name</strong>
-                    }
-                    </a>
-                    </p>
-                }
-            }
+            <form class="search" action="@routes.Application.list()">
+            <input name="q" type="search" placeholder="One letter or part of a name or numeber">
+            </form>
 
-            @if(people.hasNext()) {
-                <p class="next"><a href="@routes.Application.index(people.getPageIndex() + 2)">Next</a></p>
-            }
-        </div>
+            @indexList(people, search)
+
 		</section>
 	}
 

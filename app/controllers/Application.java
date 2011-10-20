@@ -7,6 +7,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.details;
 import views.html.index;
+import views.html.indexList;
 
 /**
  * Handles HTTP requests.
@@ -26,14 +27,22 @@ public class Application extends Controller {
    /**
     * Render one page of results.
     */
-	public static Result index(final int pageNumber) {
-      Logger.log(String.format("page %d", pageNumber));
+	public static Result index(final int pageNumber, final String search) {
       if (pageNumber < 1) {
          return badRequest();
       }
 
-      final Page<Person> page = Person.page(pageNumber - 1, PAGE_SIZE);
-      return ok(index.render(page));
+      final Page<Person> page = Person.page(pageNumber - 1, PAGE_SIZE, search);
+      return ok(index.render(page, search));
 	}
+
+   public static Result list(final int pageNumber, final String search) {
+      if (pageNumber < 1) {
+         return badRequest();
+      }
+
+      final Page<Person> page = Person.page(pageNumber - 1, PAGE_SIZE, search);
+      return ok(indexList.render(page, search));
+   }
 
 }

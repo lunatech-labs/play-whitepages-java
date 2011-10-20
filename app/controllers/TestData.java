@@ -32,7 +32,7 @@ public class TestData extends Controller {
 			}
       }
 
-      return redirect(routes.Application.index(0));
+      return redirect(routes.Application.index(0, ""));
    }
 
    /**

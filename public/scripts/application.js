@@ -46,4 +46,19 @@ $(document).ready(function() {
             $section.css('position', 'static');
         }
     });
+
+    // Enable the search
+    $('.search input').keyup(function() {
+        var query = $(this).val();
+        var parameter = $(this).attr('name');
+        var url = $(this).closest('form').attr('action');
+        var selector = url + '?' + parameter + '=' + query + ' .index p';
+        $('.index').load(selector, function() {
+            $('.index .entry').first().trigger('click');
+        });
+
+    });
+    $('form.search').submit(function() { return false; });
+
+    $('.search input').focus();
 });
