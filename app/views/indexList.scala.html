@@ -16,7 +16,7 @@
 
         <p class="letter">@letterEntry._1</p>
         @for(person <- letterEntry._2) {
-            <p class="entry">
+            <p id="p@person.id" class="entry">
             <a href="@routes.Application.details(person.id)">
             @if(person.name.contains(person.fileAs)) {
                 @person.name.substring(0, person.name.indexOf(person.fileAs))
