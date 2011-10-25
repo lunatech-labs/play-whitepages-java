@@ -26,6 +26,7 @@ public class Person extends Model {
 
    public String telephoneNumber;
 
+   @Constraints.Required
    public String fileAs;
 
    public String office;
