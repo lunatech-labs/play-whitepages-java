@@ -17,9 +17,11 @@ $(document).ready(function() {
 
     	// Update the URL
 
-		// Load and display the details.
-		$section.load(url);
-    	$section.css('visibility', 'visible');
+		// Load details, decorate buttons and display.
+		$section.load(url, function() {
+         $section.find('.edit').button({icons:{primary:"ui-icon-pencil"}});
+         $section.css('visibility', 'visible');
+		});
 	});
 
     // Paging (infinite scroll)

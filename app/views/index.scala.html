@@ -4,23 +4,11 @@
 
 @main(title = "People directory", subtitle = people.getTotalRowCount() + " people - search by name or number") {
 
-	@if(people.getList().isEmpty) {
-		<section>
-			<form action="@routes.TestData.load()" method="POST">
-				<button type="submit">Load Test Data</button>
-			</form>
-		</section>
-	} else {
+   <section class="box">
+      <form class="search" action="@routes.Application.list()">
+      <input name="q" type="search" placeholder="One letter or part of a name or number">
+      </form>
 
-
-		<section class="box">
-            <form class="search" action="@routes.Application.list()">
-            <input name="q" type="search" placeholder="One letter or part of a name or numeber">
-            </form>
-
-            @indexList(people, search)
-
-		</section>
-	}
-
+      @indexList(people, search)
+   </section>
 }
