@@ -3,30 +3,19 @@
 @import scala.collection.immutable.TreeMap
 @import scala.collection.JavaConverters._
 
-    @byLetter(people :Seq[models.Person])(body :( (Char,Seq[Person]) ) => Html) = {
-
-        @for(letterEntry <- people.groupBy( (person :Person) => person.fileAs.head)) {
-            @body(letterEntry)
-        }
-    }
-
-
-    <div id="index" class="index">
-    @byLetter(currentPage.getList().asScala) { letterEntry:(Char,Seq[Person]) =>
-
-        <p class="letter">@letterEntry._1</p>
-        @for(person <- letterEntry._2) {
-            <p id="p@person.id" class="entry">
-            <a href="@routes.Application.details(person.id)">
-            @if(person.name.contains(person.fileAs)) {
-                @person.name.substring(0, person.name.indexOf(person.fileAs))
-                <strong>@person.name.substring(person.name.indexOf(person.fileAs))</strong>
-            } else {
-                <strong>@person.name</strong>
-            }
-            </a>
-            </p>
-        }
+   <div id="index" class="index">
+   <!-- p class="letter">AA</p -->
+   @for(person <- currentPage.getList()) {
+      <p id="p@person.id" class="entry" data-file-as="@person.fileAs">
+      <a href="@routes.Application.details(person.id)">
+      @if(person.name.contains(person.fileAs)) {
+          @person.name.substring(0, person.name.indexOf(person.fileAs))
+          <strong>@person.name.substring(person.name.indexOf(person.fileAs))</strong>
+      } else {
+          <strong>@person.name</strong>
+      }
+      </a>
+      </p>
     }
 
 
