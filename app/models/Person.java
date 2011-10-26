@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import java.util.List;
 import java.util.SortedSet;
 
+/**
+ * A directory entry for one person.
+ */
 @Entity
 public class Person extends Model {
 
@@ -18,23 +21,30 @@ public class Person extends Model {
       this.name = name;
    }
 
+   /** Generated primary key. */
    @Id
    public Long id;
 
+   /** The person’s full name. */
    @Constraints.Required
    public String name;
 
    public String telephoneNumber;
 
+   /** The key for sorting directory entries, usually the surname. */
    @Constraints.Required
    public String fileAs;
 
+   /** An office or room number. */
    public String office;
 
    public String emailAddress;
 
    public static Finder<Long, Person> find = new Finder(Long.class, Person.class);
 
+   /**
+    * Returns a single page of directory entries.
+    */
    public static Page<Person> page(final int pageNumber, final int pageSize, final String search) {
       final Query<Person> query = find.query().order("fileAs");
 

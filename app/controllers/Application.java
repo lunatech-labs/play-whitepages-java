@@ -35,7 +35,7 @@ public class Application extends Controller {
 	}
 
    /**
-    * Render one page of results.
+    * Render one page of results as an HTML page.
     */
 	public static Result index(final int pageNumber, final String search) {
       if (pageNumber < 1) {
@@ -46,6 +46,9 @@ public class Application extends Controller {
       return ok(index.render(page, search));
 	}
 
+   /**
+    * Render one page of results as an HTML fragment.
+    */
    public static Result list(final int pageNumber, final String search) {
       if (pageNumber < 1) {
          return badRequest();
