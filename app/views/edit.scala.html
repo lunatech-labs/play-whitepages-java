@@ -1,10 +1,10 @@
 @(person:models.Person, form:play.data.Form[models.Person])
-
-@errors(field:play.api.data.Field) = {
-   @for(error <- field.errors) {
-       <span class="error">@error.message</span>
-   }
-}
+@**
+ * Edit contact details page.
+ *
+ * @param person  The contact details to edit.
+ * @param form    Edited fields, including values and error messages.
+ *@
 
 @main(title = "People directory", subtitle = "Edit details - " + person.name) {
 
@@ -46,3 +46,10 @@
       </form>
    </section>
 }
+
+@errors(field:play.api.data.Field) = {
+   @for(error <- field.errors) {
+       <span class="error">@error.message</span>
+   }
+}
+

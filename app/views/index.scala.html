@@ -1,14 +1,20 @@
-@(people:com.avaje.ebean.Page[models.Person], search:String)
+@(currentPage:com.avaje.ebean.Page[models.Person], search:String)
+@**
+ * Index page that shows a list of directory entries, with a search form.
+ *
+ * @param currentPage  One page of the results list.
+ * @param search  A user-entered search string - part of a name or number.
+ *@
 @import models.Person
 @import scala.collection.immutable.TreeMap
 
-@main(title = "People directory", subtitle = people.getTotalRowCount() + " people - search by name or number") {
+@main(title = "People directory", subtitle = currentPage.getTotalRowCount() + " currentPage - search by name or number") {
 
    <section class="box">
       <form class="search" action="@routes.Application.list()">
       <input name="q" type="search" placeholder="One letter or part of a name or number">
       </form>
 
-      @indexList(people, search)
+      @indexList(currentPage, search)
    </section>
 }

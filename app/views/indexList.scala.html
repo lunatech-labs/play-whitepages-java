@@ -1,4 +1,10 @@
 @(currentPage:com.avaje.ebean.Page[models.Person], search:String)
+@**
+ * HTML fragment for the list of entries, used for the index page and to load search results using Ajax.
+ *
+ * @param currentPage  One page of the results list.
+ * @param search       A user-entered search string - part of a name or number.
+ *@
 @import models.Person
 @import scala.collection.immutable.TreeMap
 @import scala.collection.JavaConverters._

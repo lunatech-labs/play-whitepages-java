@@ -1,4 +1,11 @@
 @(title:String, subtitle:String)(body: => Html)
+@**
+ * Main template that provides an HTML template wrapper for each page.
+ *
+ * @param title     Text for the main template heading.
+ * @param subtitle  Text for the main template sub-heading.
+ * @param body      Implementation of the per-page body block.
+ *@
 @import play.core.Router._
 @import play.mvc.Http.Context
 <!DOCTYPE html>
