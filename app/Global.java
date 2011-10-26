@@ -1,13 +1,12 @@
 import models.Person;
 import play.Application;
 import play.GlobalSettings;
-import play.Logger;
 import play.api.libs.Files;
 
 import java.io.File;
 
 /**
- * Load test data
+ * Load test data.
  */
 public class Global extends GlobalSettings {
 
